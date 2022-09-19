@@ -23,11 +23,11 @@ const App:React.FC = () => {
 
 
  }
- console.log(todos)
+
 
   return (
     <div className="App">
-      <span className="heading">Taskify</span>
+      <span className="heading">ToDos</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
       <TodoList todos={todos} setTodos={setTodos} />
      {todos.map((t)=>(

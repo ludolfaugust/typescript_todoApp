@@ -13,16 +13,16 @@ const Form = styled.form`
 
 const Input = styled.input`
     width: 100%;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 20px 30px;
     font-size: 25px;
     border: none;
     transition: 0.2s;
-    box-shadow: inset 0 0 5px black; 
+    box-shadow: inset 0 0 3px black; 
    
 
         &:focus{
-          box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.2);
           outline: blue;  
           
         }
@@ -35,22 +35,22 @@ const Button = styled.button`
     widht: 50px;
     height: 50px;
     margin: 12px;
-    border-radius: 50px;
+    border-radius: 10px;
     right: 0px;
     border: none;
     font-size: 15px;
-    background-color: rgb(110, 117, 18);
+    background-color: #1d7ed4;
     color: white;
     transition: 0.2s all;
-    box-shadow: 0 0 10px black;
+   
 
     &: hover {
-        background: rgb(180, 117, 18)
+        background: #195eca;
     }
 
     &: focus {
-        transform: scale(0.8);
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
     }
 `;
@@ -80,7 +80,7 @@ const InputField:FC<Props> = ({todo, setTodo, handleAdd}) => {
             ref={inputRef}
             value={todo}
             onChange={(e)=>setTodo(e.target.value)}
-            placeholder= "Enter a Task"/>
+            placeholder= "Enter a Todo"/>
 
             <Button type="submit">
                 Go
