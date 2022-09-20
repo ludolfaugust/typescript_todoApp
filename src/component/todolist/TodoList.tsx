@@ -13,8 +13,12 @@ const TodoContainer = styled.div`
 display: flex;
 justify-content: space-evenly;
 width: 90%;
-flex: wrap;
+flex-wrap: wrap;
+padding: 5px;
 text-transform: uppercase;
+@media (max-width: 700px) {
+    flex-direction: column;
+}
 `;
 
 
