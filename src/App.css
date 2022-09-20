@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap');
+
 .App{
 width: 100vw;
 height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color:#1d7ed4;
-
+background-image:url("https://external-preview.redd.it/1uGjZXE6uY9l3ynHwFp-kLVKCuyuKVLuj1Vlg8Cgra8.jpg?auto=webp&s=e7ce5ca8747a625566701364fe2bee3b1d79078d");
+background-repeat: repeat-x;
+background-color: rgb(255, 217, 15);
+font-family:"Comic Neue";
 
 }
 
 .heading{
-  text-transform: uppercase;
+  
   font-size: 40px;
   z-index: 1;
   color: #fff;

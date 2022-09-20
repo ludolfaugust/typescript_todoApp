@@ -27,12 +27,10 @@ const App:React.FC = () => {
 
   return (
     <div className="App">
-      <span className="heading">ToDos</span>
+      <span className="heading">To Do Pile</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
       <TodoList todos={todos} setTodos={setTodos} />
-     {todos.map((t)=>(
-        <li>{t.todo}</li>
-      ))}
+     
       
     </div>
   );

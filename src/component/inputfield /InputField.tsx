@@ -13,6 +13,7 @@ const Form = styled.form`
 
 const Input = styled.input`
     width: 100%;
+    text-transform: uppercase;
     border-radius: 10px;
     padding: 20px 30px;
     font-size: 25px;
@@ -32,13 +33,14 @@ const Input = styled.input`
 
 const Button = styled.button`
     position: absolute; 
-    widht: 50px;
+    width: 50px;
     height: 50px;
     margin: 12px;
-    border-radius: 10px;
+    border-radius: 50px;
     right: 0px;
     border: none;
     font-size: 15px;
+    font-weight: bold;
     background-color: #1d7ed4;
     color: white;
     transition: 0.2s all;
