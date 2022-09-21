@@ -19,6 +19,7 @@ const Input = styled.input`
     font-size: 25px;
     border: none;
     transition: 0.2s;
+    font-family:"Comic Neue";
     box-shadow: inset 0 0 3px black; 
    
 
@@ -27,6 +28,7 @@ const Input = styled.input`
           outline: blue;  
           
         }
+    
 
 `;
 
@@ -82,7 +84,7 @@ const InputField:FC<Props> = ({todo, setTodo, handleAdd}) => {
             ref={inputRef}
             value={todo}
             onChange={(e)=>setTodo(e.target.value)}
-            placeholder= "Enter a Todo"/>
+            placeholder= "make homers life worse"/>
 
             <Button type="submit">
                 Go

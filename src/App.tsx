@@ -27,7 +27,7 @@ const App:React.FC = () => {
 
   return (
     <div className="App">
-      <span className="heading">"To do pile? I have a To Do pile?!"Homer J. Simpson</span>
+      <div className="heading">"To do pile? I have a To Do pile?!"<p className='heading--small'>Homer J. Simpson</p></div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
       <TodoList todos={todos} setTodos={setTodos} />
      

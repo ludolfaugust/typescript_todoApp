@@ -22,7 +22,7 @@ interface Props {
 
 const TodoSingle = styled.form`
     display: flex;
-    width: 29.5%;
+    
     border-radius: 5px;
     padding: 15px;
     margin-top: 15px;
@@ -35,6 +35,7 @@ const TodoSingle = styled.form`
     @media (max-width: 700px) {
         width: 90%;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
 `;
@@ -58,36 +59,40 @@ const Icon = styled.span`
 
 const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
 
-    const handleEdit = (id: number) => {
+    const handleDone = (id: number) => {
 
-        setTodos(
-            todos.map((todo) =>
+        setTodos(todos.map((todo) =>
             todo.id === id ? {
-                ...todo, isDone: !todo.isDone
+                ...todo, todo: "Well Done Homer - Grab a Beer", isDone: !todo.isDone
             }
-                
-             : todo
-            )
-        );
-
+            : 
+            todo
+        ))    
     }
 
     const handleDelete = (id: number) => {
         setTodos(todos.filter(todo => todo.id !== id));
+
+    }
+
+    const handleEdit = (id: number) => {
+        
     }
 
     return (
         <TodoSingle>
             {todo.isDone ? (
                 <s className='todo_single--text'>{todo.todo}</s>
+              
+
             ) : (
                 <span className='todo_single--text'>{todo.todo}</span>
             )}
             
             
             <Icons>
-            <Icon onClick={()=>handleEdit(todo.id)}><ImPencil2 /></Icon>
-            <Icon><FaThumbsUp /></Icon>
+            <Icon ><ImPencil2 onClick={()=> handleEdit(todo.id)}/></Icon>
+            <Icon onClick={()=>handleDone(todo.id)}><FaThumbsUp /></Icon>
             <Icon onClick={()=>handleDelete(todo.id)}><FaThumbsDown /></Icon>
             </Icons>
             
