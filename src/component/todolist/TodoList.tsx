@@ -15,6 +15,8 @@ justify-content: space-evenly;
 width: 90%;
 flex-wrap: wrap;
 padding: 5px;
+border: 2px;
+border-color: white;
 text-transform: uppercase;
 @media (max-width: 700px) {
     flex-direction: column;
@@ -27,8 +29,7 @@ const TodoList:FC<Props> = ({todos, setTodos}) => {
         <TodoContainer>
             {todos.map((todo)=>(
         <SingleTodo 
-                todo={todo.todo}
-                key={todo.id}
+                todo={todo}
                 todos={todos}
                 setTodos={setTodos}
         />

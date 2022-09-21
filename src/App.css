@@ -23,6 +23,16 @@ font-family:"Comic Neue";
 
 }
 
+.todo_single--text{
+  flex: 1;
+  padding: 5px;
+  font-size: 20px;
+  border: none;
+
+}
+
+
+
 @media (max-width: 800px) {
   .heading {
     margin: 15px 0;

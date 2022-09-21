@@ -4,18 +4,17 @@ import {FaThumbsDown} from "react-icons/fa";
 import {ImPencil2} from "react-icons/im";
 import {FaThumbsUp} from "react-icons/fa";
 import styled from "styled-components";
-import {
-    Tooltip,
-  } from 'react-tippy';
+import "../../App.css"
+// import {
+//     Tooltip,
+//   } from 'react-tippy';
   
-  import 'react-tippy/dist/tippy.css';
+//   import 'react-tippy/dist/tippy.css';
 
 interface Props {
-    todo: string; 
-    key: number; 
+    todo: Todo; 
     todos: Todo[]; 
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-    title: string;
     
 }
 
@@ -29,6 +28,9 @@ const TodoSingle = styled.form`
     margin-top: 15px;
     background-color: #FFD90F;
     align-items: center;
+    border: 3px solid #fff;
+    
+
 
     @media (max-width: 700px) {
         width: 90%;
@@ -37,13 +39,7 @@ const TodoSingle = styled.form`
 
 `;
 
-const TodoText = styled.span`
-    flex: 1;
-    padding: 5px;
-    font-size: 20px;
-    border: none;
 
-`;
 
 
 const Icons = styled.div`
@@ -59,20 +55,40 @@ const Icon = styled.span`
 `;
 
 
-const SingleTodo: FC<Props> = ({todo, key, todos, setTodos}) => {
+
+const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
+
+    const handleEdit = (id: number) => {
+
+        setTodos(
+            todos.map((todo) =>
+            todo.id === id ? {
+                ...todo, isDone: !todo.isDone
+            }
+                
+             : todo
+            )
+        );
+
+    }
+
+    const handleDelete = (id: number) => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    }
+
     return (
         <TodoSingle>
-            <TodoText>{todo}</TodoText>
+            {todo.isDone ? (
+                <s className='todo_single--text'>{todo.todo}</s>
+            ) : (
+                <span className='todo_single--text'>{todo.todo}</span>
+            )}
+            
             
             <Icons>
-            <Tooltip
-  title="Edit"
-  
-  
->
-            <Icon><ImPencil2 /></Icon></Tooltip>
+            <Icon onClick={()=>handleEdit(todo.id)}><ImPencil2 /></Icon>
             <Icon><FaThumbsUp /></Icon>
-            <Icon><FaThumbsDown /></Icon>
+            <Icon onClick={()=>handleDelete(todo.id)}><FaThumbsDown /></Icon>
             </Icons>
             
         </TodoSingle>
