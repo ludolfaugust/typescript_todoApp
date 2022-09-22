@@ -7,6 +7,8 @@ const Form = styled.form`
     width: 90%;
     position: relative;
     align-items: center;
+    justify-content: center;
+    margin: auto;
     `
   ;
 
@@ -21,6 +23,7 @@ const Input = styled.input`
     transition: 0.2s;
     font-family:"Comic Neue";
     box-shadow: inset 0 0 3px black; 
+    
    
 
         &:focus{

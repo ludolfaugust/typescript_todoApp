@@ -6,7 +6,6 @@ height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-background-image:url("https://external-preview.redd.it/1uGjZXE6uY9l3ynHwFp-kLVKCuyuKVLuj1Vlg8Cgra8.jpg?auto=webp&s=e7ce5ca8747a625566701364fe2bee3b1d79078d");
 background-repeat: repeat-x;
 background-color: rgb(255, 217, 15);
 font-family:"Comic Neue";
@@ -19,7 +18,7 @@ font-family:"Comic Neue";
   z-index: 1;
   color: #fff;
   text-align: center;
-  padding: 3rem;
+ 
 
 }
 
