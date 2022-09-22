@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Todo } from '../model/model';
 import {FaThumbsDown} from "react-icons/fa";
 import {ImPencil2} from "react-icons/im";
@@ -59,6 +59,9 @@ const Icon = styled.span`
 
 const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
 
+    const [edit, setEdit] = useState<boolean>(false);
+    const [editTodo, setEditTodo] = useState<string>(todo.todo)
+
     const handleDone = (id: number) => {
 
         setTodos(todos.map((todo) =>
@@ -75,13 +78,24 @@ const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
 
     }
 
-    const handleEdit = (id: number) => {
-        
+    const handleEdit = (e: React.FormEvent, id: number) => { 
+       e.preventDefault()
+
+       setTodos(todos.map((todo)=>
+       todo.id === id ? {
+        ...todo, todo: editTodo} 
+        : 
+        todo
+       ))
+
+       setEdit(false)
     }
 
     return (
-        <TodoSingle>
-            {todo.isDone ? (
+        <TodoSingle onSubmit={(e) => handleEdit(e, todo.id )}>
+            
+
+            { edit ? (<input value={editTodo} onChange={(e)=>setEditTodo(e.target.value)} className="todo_single--text" /> ) : todo.isDone ? (
                 <s className='todo_single--text'>{todo.todo}</s>
               
 
@@ -91,7 +105,11 @@ const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
             
             
             <Icons>
-            <Icon ><ImPencil2 onClick={()=> handleEdit(todo.id)}/></Icon>
+            <Icon onClick={()=>{
+                if(!edit && !todo.isDone) {
+                    setEdit(true)
+                }
+            }}><ImPencil2 /></Icon>
             <Icon onClick={()=>handleDone(todo.id)}><FaThumbsUp /></Icon>
             <Icon onClick={()=>handleDelete(todo.id)}><FaThumbsDown /></Icon>
             </Icons>
