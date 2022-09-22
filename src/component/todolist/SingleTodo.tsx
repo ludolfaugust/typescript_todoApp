@@ -95,7 +95,7 @@ const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
         <TodoSingle onSubmit={(e) => handleEdit(e, todo.id )}>
             
 
-            { edit ? (<input value={editTodo} onChange={(e)=>setEditTodo(e.target.value)} className="todo_single--text" /> ) : todo.isDone ? (
+            { edit ? (<input value={editTodo} onChange={(e)=>setEditTodo(e.target.value)} type="search" className="todo_single--text" /> ) : todo.isDone ? (
                 <s className='todo_single--text'>{todo.todo}</s>
               
 
@@ -107,7 +107,7 @@ const SingleTodo: FC<Props> = ({todo, todos, setTodos}) => {
             <Icons>
             <Icon onClick={()=>{
                 if(!edit && !todo.isDone) {
-                    setEdit(true)
+                    setEdit(!edit)
                 }
             }}><ImPencil2 /></Icon>
             <Icon onClick={()=>handleDone(todo.id)}><FaThumbsUp /></Icon>

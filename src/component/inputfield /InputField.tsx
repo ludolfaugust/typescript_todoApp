@@ -9,6 +9,7 @@ const Form = styled.form`
     align-items: center;
     justify-content: center;
     margin: auto;
+    
     `
   ;
 
@@ -22,7 +23,9 @@ const Input = styled.input`
     border: none;
     transition: 0.2s;
     font-family:"Comic Neue";
+    font-weight: bold;
     box-shadow: inset 0 0 3px black; 
+    opacity: 0.7;
     
    
 
